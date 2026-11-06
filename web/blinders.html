@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="stencil-token" content="__TOKEN__">
+  <title>Blinders · Research inbox</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/blinders.js" defer></script>
+</head>
+<body>
+<main class="blinders">
+  <div class="topline">Research inbox</div>
+  <header class="project-header"><div><h1>Blinders</h1><p class="supporting">Keep exact passages and screenshots from your research.</p></div></header>
+  <section class="card" aria-labelledby="source-heading">
+    <h2 id="source-heading">Connected tab</h2>
+    <p id="connection" class="supporting" role="status">Checking connection…</p>
+    <div class="context-actions">
+      <button id="text" class="button primary" disabled>Save selected text</button>
+      <button id="png" class="button secondary" disabled>Save visible tab</button>
+      <button id="refresh" class="text-button">Check connection</button>
+      <button id="disconnect" class="text-button" hidden>Disconnect</button>
+    </div>
+    <details class="record-detail" id="setup"><summary>Connect Chrome</summary>
+      <ol><li>Open <code>chrome://extensions</code>, enable Developer mode, and choose <strong>Load unpacked</strong>. Select the extension folder printed by <code>blinders open</code>.</li>
+      <li>Click the Blinders extension on this inbox, then click it on the research tab. Return here to capture. You can also use its shortcut from Chrome’s extension shortcuts page.</li>
+      <li>For text, first highlight the passage in the connected tab. For a screenshot, leave the desired view visible. Click the extension on another research tab to switch sources.</li></ol>
+    </details>
+    <p id="outcome" role="status" aria-live="polite"></p>
+    <button class="button secondary" id="retry" hidden>Retry saving this capture</button>
+    <button id="discard" class="text-button" hidden>Clear pending copy</button>
+  </section>
+  <section class="card" aria-labelledby="captures-heading">
+    <h2 id="captures-heading">Saved captures</h2>
+    <p id="empty" class="supporting" hidden>Your first capture will appear here.</p>
+    <div id="captures"></div>
+    <div class="context-actions"><button id="newer" class="button secondary" hidden>Newer</button><button id="older" class="button secondary" hidden>Older</button></div>
+  </section>
+</main>
+</body>
+</html>

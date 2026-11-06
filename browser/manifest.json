@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Blinders",
+  "version": "0.1.0",
+  "description": "Connect a chosen research tab to your local research inbox.",
+  "permissions": ["activeTab", "scripting", "storage"],
+  "action": {"default_title": "Connect this tab to Blinders"},
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {"default": "Ctrl+Shift+Y", "mac": "Command+Shift+Y"},
+      "description": "Connect this tab to Blinders"
+    }
+  },
+  "background": {"service_worker": "worker.js"},
+  "externally_connectable": {"matches": ["http://127.0.0.1/*"]},
+  "content_scripts": [{
+    "matches": ["http://127.0.0.1/blinders"],
+    "js": ["identify.js"]
+  }]
+}
